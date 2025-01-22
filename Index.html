@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4chan Redesign</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        h3 {
+            color: #a30000;
+        }
+
+        .toplogo {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .left-box {
+            width: 25%;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 5px 5px #6aad4b;
+            height: auto;
+            transition: height 0.3s ease;
+            overflow: hidden;
+        }
+
+        .right-box {
+            width: 70%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .collapsible-list {
+            margin-bottom: 10px;
+        }
+
+        .collapsible {
+            background-color: #6aad4b;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .collapsible:hover {
+            background-color: #067204;
+        }
+
+        .content {
+            display: none;
+            padding: 10px;
+            background-color: #f1f1f1;
+            margin-top: 5px;
+        }
+
+        .content a {
+            display: block;
+            color: #333;
+            padding: 5px 0;
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            background-color: #ddd;
+        }
+
+        .image-item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 5px 5px #6aad4b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .image-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Responsive Grid Layout */
+        @media (min-width: 600px) {
+            .right-box {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .right-box {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .right-box {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Accessibility: Ensure enough contrast */
+        .collapsible,
+        .collapsible-list a {
+            background-color: #6aad4b;
+            color: white;
+        }
+
+        .collapsible-list a:hover {
+            background-color: #4b8b3f;
+        }
+        
+        /* Accessible focus state for keyboard users */
+        .collapsible:focus {
+            outline: 3px solid #a30000;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/4chan_logo.svg.png" width="400" height="150" class="toplogo" alt="4chan Logo">
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Left Box: Collapsible Lists -->
+            <div class="left-box">
+                <div class="collapsible-list">
+                    <button class="collapsible" id="culture-button">Culture</button>
+                    <div class="content" id="culture-content">
+                        <a href="#">Cosplay</a>
+                        <a href="#">Video Games</a>
+                        <a href="#">Pokemon</a>
+                        <a href="#">Retro Games</a>
+                        <a href="#">Cute/Male</a>
+                        <a href="#">Flash</a>
+                        <a href="#">Video Games/Strategy</a>
+                        <a href="#">Virtual Youtubers</a>
+                        <a href="#">Mecha</a>
+                        <a href="#">Wallpapers</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="interests-button">Interests</button>
+                    <div class="content" id="interests-content">
+                        <a href="#">Comic & Cartoons</a>
+                        <a href="#">Technology</a>
+                        <a href="#">Weapons</a>
+                        <a href="#">Auto</a>
+                        <a href="#">Animals And Nature</a>
+                        <a href="#">Extreme Sports</a>
+                        <a href="#">Sports</a>
+                        <a href="#">Professional Wrestling</a>
+                        <a href="#">Toys</a>
+                        <a href="#">Outdoors</a>
+                        <a href="#">Television And Film</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="creative-button">Creative</button>
+                    <div class="content" id="creative-content">
+                        <a href="#">Papercraft And Origami</a>
+                        <a href="#">Photography</a>
+                        <a href="#">Food And Cooking</a>
+                        <a href="#">Fashion</a>
+                        <a href="#">Music</a>
+                        <a href="#">Artwork</a>
+                        <a href="#">Graphic Design</a>
+                        <a href="#">Quests</a>
+                        <a href="#">Worksafe Gif</a>
+                        <a href="#">Do-it Yourself</a>
+                        <a href="#">Literature</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="other-button">Other</button>
+                    <div class="content" id="other-content">
+                        <a href="#">Bussiness And Finance</a>
+                        <a href="#">Travel</a>
+                        <a href="#">Fitness</a>
+                        <a href="#">Paranormal</a>
+                        <a href="#">Advice</a>
+                        <a href="#">Pony</a>
+                        <a href="#">LGBT</a>
+                        <a href="#">Current News</a>
+                        <a href="#">Very Important Posts</a>
+                        <a href="#">Worksafe Requests</a>
+                        <a href="#">Politically Incorrect</a>
+                        <a href="#">Random</a>
+                        <a href="#">Misc</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Right Box: Image Grid -->
+            <div class="right-box">
+                <div class="image-item">
+                    <h3>Cars</h3>
+                    <img src="images/delorean.avif" alt="Delorean Car">
+                    <p>/c/ -V4Mirai General: *zaps you* I LOVE the delorean, too bad they are so slow</p>
+                </div>
+                <div class="image-item">
+                    <h3>Technology</h3>
+                    <img src="images/airpods.jpg" alt="AirPods">
+                    <p>/tech/ Me1al MonsTer: >Previous 9348732432: Airpods quality is so bad</p>
+                </div>
+                <div class="image-item">
+                    <h3>Cat</h3>
+                    <img src="images/nyancat.webp" alt="Nyancat">
+                    <p>M3000WE: >Previous 1236549334: MOW MEOOWOWO 0MO30EMWOW</p>
+                </div>
+                <div class="image-item">
+                    <h3>Computer</h3>
+                    <img src="images/motherboard.webp" alt="Motherboard">
+                    <p>/comp/: >Why do motherboards look so stupid, that blue hurts my eyes</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 4Chan Redesign</p>
+    </footer>
+
+    <!-- JavaScript for Collapsible Lists -->
+    <script>
+        // Get all the collapsible buttons
+        const collapsibles = document.querySelectorAll(".collapsible");
+
+        // Add event listeners to each collapsible button
+        collapsibles.forEach(button => {
+            button.addEventListener("click", function() {
+                // Toggle the "active" class to show/hide the content
+                this.classList.toggle("active");
+                
+                // Toggle the display of the content
+                const content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
