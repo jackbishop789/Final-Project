@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thread Page</title>
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        margin: 20px;
+        animation: fadeIn 2s ease-out;
+    }
+
+    h3 {
+        color: #a30000;
+    }
+
+    .toplogo {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: transform 0.3s ease;
+    }
+
+    .toplogo:hover {
+        transform: translateX(-50%) scale(1.1);
+    }
+
+    .threads-container {
+        display: block;
+        margin-top: 200px; /* Adjust space for the logo at the top */
+    }
+
+    .thread {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 5px 5px #6aad4b;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .thread:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .username {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .photo-container {
+        margin-right: 15px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10%;
+        transition: transform 0.3s ease;
+    }
+
+    .photo-container:hover {
+        transform: rotate(5deg);
+    }
+
+    .photo-container img {
+        border-radius: 10%;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .photo-container:hover img {
+        transform: scale(1.1);
+    }
+
+    .message {
+        flex-grow: 1;
+        word-wrap: break-word;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 30px;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    /* Animation for page load */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Focus state for better accessibility */
+    .toplogo:focus,
+    .photo-container:focus,
+    .message:focus {
+        outline: 3px solid #a30000;
+    }
+
+  </style>
+</head>
+<body>
+    <header>
+      <a href="Index.html" target="_blank" aria-label="Go to 4chan home page">
+        <img src="images/4chan_logo.svg.png" width="400" height="150" class="toplogo" alt="4chan Logo">
+      </a>
+    </header>
+
+    <div class="threads-container">
+        <section class="thread" aria-labelledby="thread1">
+          <div class="photo-container" tabindex="0" role="img" aria-label="User photo with airpods">
+            <img src="images/airpods.jpg" alt="User Photo with Airpods">
+          </div>
+          <div class="message">
+            <div class="username">Me1al MonsTer</div>
+            <p>Airpods quality is so bad</p>
+          </div>
+        </section>
+
+        <section class="thread" aria-labelledby="thread2">
+            <div class="photo-container" tabindex="0" role="img" aria-label="User photo with a hat">
+              <img src="images/hat.jpg" alt="User Photo with Hat">
+            </div>
+            <div class="message">
+              <div class="username">Capperie</div>
+              <p>That's cause Apple sucks.</p>
+            </div>
+        </section>
+
+        <section class="thread" aria-labelledby="thread3">
+            <div class="photo-container" tabindex="0" role="img" aria-label="User photo with Delorean">
+              <img src="images/delorean.avif" alt="User Photo with Delorean">
+            </div>
+            <div class="message">
+              <div class="username">cArl0VER</div>
+              <p>Yeah they do suck, I lost my tooth on one</p>
+            </div>
+        </section>
+
+        <section class="thread" aria-labelledby="thread4">
+            <div class="photo-container" tabindex="0" role="img" aria-label="User photo of an AI Cat">
+              <img src="images/aicat.avif" alt="User Photo of an AI Cat">
+            </div>
+            <div class="message">
+              <div class="username">catLover449</div>
+              <p>Cats are so damn cute, AI cats are even better, look how smooth!</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 4Chan Redesign</p>
+    </footer>
+</body>
+</html>

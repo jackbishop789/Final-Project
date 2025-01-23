@@ -1,0 +1,13 @@
+html {
+    background-color: rgb(252, 242, 229);
+}
+
+header {
+    background-image: linear-gradient(to bottom, #6aad4b, rgb(252, 242, 229));
+    padding: 100px 0;
+}
+footer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+}

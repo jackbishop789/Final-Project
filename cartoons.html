@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thread Page</title>
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    /* Global Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        margin: 20px;
+        animation: fadeIn 2s ease-out;
+    }
+
+    /* Heading Style */
+    h3 {
+        color: #a30000;
+    }
+
+    /* Logo Style */
+    .toplogo {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: transform 0.3s ease;
+    }
+
+    /* Hover effect on logo */
+    .toplogo:hover {
+        transform: translateX(-50%) scale(1.1);
+    }
+
+    /* Container for threads */
+    .threads-container {
+        display: block;
+        margin-top: 200px; /* Adjust space for the logo at the top */
+    }
+
+    /* Individual thread styling */
+    .thread {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 5px 5px #6aad4b;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Hover effect on threads */
+    .thread:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Username styling */
+    .username {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    /* Photo container styling */
+    .photo-container {
+        margin-right: 15px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10%;
+        transition: transform 0.3s ease;
+    }
+
+    /* Hover effect on photo container */
+    .photo-container:hover {
+        transform: rotate(5deg);
+    }
+
+    /* Photo image styling */
+    .photo-container img {
+        border-radius: 10%;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    /* Hover effect on image */
+    .photo-container:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Message content styling */
+    .message {
+        flex-grow: 1;
+        word-wrap: break-word; /* Ensures long words break and wrap to the next line */
+    }
+
+    /* Animation for page load */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* Animation for footer slide-in */
+    @keyframes slideUp {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Focus state for better accessibility */
+    .toplogo:focus,
+    .photo-container:focus,
+    .message:focus {
+        outline: 3px solid #a30000; /* Highlight elements for keyboard users */
+    }
+  </style>
+</head>
+<body>
+  <!-- Main Header Section -->
+  <header>
+    <a href="Index.html" target="_blank" aria-label="Go to 4chan home page">
+      <img src="images/4chan_logo.svg.png" width="400" height="150" class="toplogo" alt="4chan Logo">
+    </a>
+  </header>
+
+  <!-- Main content area for threads -->
+  <main class="threads-container" role="main">
+    <!-- Individual thread -->
+    <section class="thread" aria-labelledby="thread1">
+      <div class="photo-container" tabindex="0" role="img" aria-label="User photo of Superman">
+        <img src="images/superman.webp" alt="User Photo of Superman">
+      </div>
+      <div class="message">
+        <div class="username">Not So Super Man</div>
+        <p>Whos your favorite superhero??</p>
+      </div>
+    </section>
+
+    <!-- Another thread -->
+    <section class="thread" aria-labelledby="thread2">
+      <div class="photo-container" tabindex="0" role="img" aria-label="User photo of Green Lantern">
+        <img src="images/greenlantern.jpg" alt="User Photo of Green Lantern">
+      </div>
+      <div class="message">
+        <div class="username">>Not So Super Man: Super Real Person123</div>
+        <p>My favorite is definitly green lantern, I just like how weird it is that he sticks his hand in burning fire to charge his weird magical ring</p>
+      </div>
+    </section>
+
+    <!-- Another thread -->
+    <section class="thread" aria-labelledby="thread3">
+      <div class="photo-container" tabindex="0" role="img" aria-label="User photo of an AI Cat">
+        <img src="images/aicat.avif" alt="User Photo of an AI Cat">
+      </div>
+      <div class="message">
+        <div class="username">AIL0ver</div>
+        <p>Actually cat woman is the best by far.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer section -->
+  <footer role="contentinfo">
+    <p>© 2025 4Chan Redesign</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4chan Redesign</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer.css">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        h3 {
+            color: #a30000;
+        }
+
+        .toplogo {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+            flex-wrap: wrap;
+        }
+
+        .left-box {
+            width: 25%;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 5px 5px #6aad4b;
+            height: auto;
+            transition: height 0.3s ease;
+            overflow: hidden;
+        }
+
+        .right-box {
+            width: 70%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .collapsible-list {
+            margin-bottom: 10px;
+        }
+
+        .collapsible {
+            background-color: #6aad4b;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .collapsible:hover {
+            background-color: #067204;
+        }
+
+        .content {
+            display: none;
+            padding: 10px;
+            background-color: #f1f1f1;
+            margin-top: 5px;
+        }
+
+        .content a {
+            display: block;
+            color: #333;
+            padding: 5px 0;
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            background-color: #ddd;
+        }
+
+        .image-item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 5px 5px #6aad4b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .image-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Responsive Grid Layout */
+        @media (min-width: 600px) {
+            .right-box {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .right-box {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .right-box {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Accessibility: Ensure enough contrast */
+        .collapsible,
+        .collapsible-list a {
+            background-color: #6aad4b;
+            color: white;
+        }
+
+        .collapsible-list a:hover {
+            background-color: #4b8b3f;
+        }
+        
+        /* Accessible focus state for keyboard users */
+        .collapsible:focus {
+            outline: 3px solid #a30000;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Index.html" target="_blank">
+            <img src="images/4chan_logo.svg.png" width="400" height="150" class="toplogo" alt="4chan Logo">
+        </a>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Left Box: Collapsible Lists -->
+            <div class="left-box">
+                <div class="collapsible-list">
+                    <button class="collapsible" id="culture-button">Culture</button>
+                    <div class="content" id="culture-content">
+                        <a href="videogames.html">Video Games</a>
+                        <a href="#">Cosplay</a>
+                        <a href="#">Pokemon</a>
+                        <a href="#">Retro Games</a>
+                        <a href="#">Cute/Male</a>
+                        <a href="#">Flash</a>
+                        <a href="#">Video Games/Strategy</a>
+                        <a href="#">Virtual Youtubers</a>
+                        <a href="#">Mecha</a>
+                        <a href="#">Wallpapers</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="interests-button">Interests</button>
+                    <div class="content" id="interests-content">
+                        <a href="cars.html">Cars</a>
+                        <a href="technology.html">Technology</a>
+                        <a href="technology.html">Cat</a>
+                        <a href="computer.html">Computer</a>
+                        <a href="cartoons.html">Comic & Cartoons</a>
+                        <a href="#">Weapons</a>
+                        <a href="#">Auto</a>
+                        <a href="#">Animals And Nature</a>
+                        <a href="#">Extreme Sports</a>
+                        <a href="#">Sports</a>
+                        <a href="#">Professional Wrestling</a>
+                        <a href="#">Toys</a>
+                        <a href="#">Outdoors</a>
+                        <a href="#">Television And Film</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="creative-button">Creative</button>
+                    <div class="content" id="creative-content">
+                        <a href="#">Papercraft And Origami</a>
+                        <a href="#">Photography</a>
+                        <a href="#">Food And Cooking</a>
+                        <a href="#">Fashion</a>
+                        <a href="#">Music</a>
+                        <a href="#">Artwork</a>
+                        <a href="#">Graphic Design</a>
+                        <a href="#">Quests</a>
+                        <a href="#">Worksafe Gif</a>
+                        <a href="#">Do-it Yourself</a>
+                        <a href="#">Literature</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="other-button">Other</button>
+                    <div class="content" id="other-content">
+                        <a href="misc.html">Misc</a>
+                        <a href="random.html">Random</a>
+                        <a href="#">Bussiness And Finance</a>
+                        <a href="#">Travel</a>
+                        <a href="#">Fitness</a>
+                        <a href="#">Paranormal</a>
+                        <a href="#">Advice</a>
+                        <a href="#">Pony</a>
+                        <a href="#">LGBT</a>
+                        <a href="#">Current News</a>
+                        <a href="#">Very Important Posts</a>
+                        <a href="#">Worksafe Requests</a>
+                        <a href="#">Politically Incorrect</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="food-button">Food & Drink</button>
+                    <div class="content" id="food-content">
+                        <a href="#">Cooking Recipes</a>
+                        <a href="#">Vegan Options</a>
+                        <a href="#">Street Food</a>
+                        <a href="#">Healthy Eating</a>
+                        <a href="#">Wine Pairing</a>
+                        <a href="#">Coffee Culture</a>
+                        <a href="#">Desserts</a>
+                        <a href="#">Global Cuisine</a>
+                        <a href="#">BBQ</a>
+                        <a href="#">Food Criticism</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="sports-button">Sports</button>
+                    <div class="content" id="sports-content">
+                        <a href="#">Football</a>
+                        <a href="#">Basketball</a>
+                        <a href="#">Tennis</a>
+                        <a href="#">Baseball</a>
+                        <a href="#">Soccer</a>
+                        <a href="#">Esports</a>
+                        <a href="#">Olympics</a>
+                        <a href="#">Martial Arts</a>
+                        <a href="#">Running</a>
+                        <a href="#">Extreme Sports</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="music-button">Music</button>
+                    <div class="content" id="music-content">
+                        <a href="#">Rock</a>
+                        <a href="#">Pop</a>
+                        <a href="#">Jazz</a>
+                        <a href="#">Hip-Hop</a>
+                        <a href="#">Classical</a>
+                        <a href="#">Electronic</a>
+                        <a href="#">Indie</a>
+                        <a href="#">Blues</a>
+                        <a href="#">Reggae</a>
+                        <a href="#">Alternative</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="science-button">Science</button>
+                    <div class="content" id="science-content">
+                        <a href="#">Physics</a>
+                        <a href="#">Biology</a>
+                        <a href="#">Chemistry</a>
+                        <a href="#">Astronomy</a>
+                        <a href="#">Environmental Science</a>
+                        <a href="#">Geology</a>
+                        <a href="#">Medicine</a>
+                        <a href="#">Genetics</a>
+                        <a href="#">Space Exploration</a>
+                        <a href="#">Neuroscience</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="literature-button">Literature</button>
+                    <div class="content" id="literature-content">
+                        <a href="#">Fiction</a>
+                        <a href="#">Poetry</a>
+                        <a href="#">Science Fiction</a>
+                        <a href="#">Fantasy</a>
+                        <a href="#">Non-fiction</a>
+                        <a href="#">Literary Criticism</a>
+                        <a href="#">Short Stories</a>
+                        <a href="#">Novels</a>
+                        <a href="#">Comics & Graphic Novels</a>
+                        <a href="#">Classic Literature</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="history-button">History</button>
+                    <div class="content" id="history-content">
+                        <a href="#">Ancient Civilizations</a>
+                        <a href="#">World Wars</a>
+                        <a href="#">Medieval History</a>
+                        <a href="#">Modern History</a>
+                        <a href="#">Historiography</a>
+                        <a href="#">Historical Figures</a>
+                        <a href="#">Archaeology</a>
+                        <a href="#">Historical Documents</a>
+                        <a href="#">Revolutions</a>
+                        <a href="#">Mythology</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="art-button">Art</button>
+                    <div class="content" id="art-content">
+                        <a href="#">Painting</a>
+                        <a href="#">Sculpture</a>
+                        <a href="#">Modern Art</a>
+                        <a href="#">Photography</a>
+                        <a href="#">Graphic Design</a>
+                        <a href="#">Street Art</a>
+                        <a href="#">Film</a>
+                        <a href="#">Art Movements</a>
+                        <a href="#">Art History</a>
+                        <a href="#">Fine Arts</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="travel-button">Travel</button>
+                    <div class="content" id="travel-content">
+                        <a href="#">Adventure Travel</a>
+                        <a href="#">Luxury Travel</a>
+                        <a href="#">Backpacking</a>
+                        <a href="#">Destination Guides</a>
+                        <a href="#">Cultural Travel</a>
+                        <a href="#">Travel Tips</a>
+                        <a href="#">Sustainable Travel</a>
+                        <a href="#">Solo Travel</a>
+                        <a href="#">Family Travel</a>
+                        <a href="#">Food Travel</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="fashion-button">Fashion</button>
+                    <div class="content" id="fashion-content">
+                        <a href="#">Streetwear</a>
+                        <a href="#">Vintage Fashion</a>
+                        <a href="#">Haute Couture</a>
+                        <a href="#">Menswear</a>
+                        <a href="#">Womenswear</a>
+                        <a href="#">Sustainable Fashion</a>
+                        <a href="#">Fashion Trends</a>
+                        <a href="#">Celebrity Style</a>
+                        <a href="#">Fashion Photography</a>
+                        <a href="#">DIY Fashion</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="fitness-button">Fitness</button>
+                    <div class="content" id="fitness-content">
+                        <a href="#">Strength Training</a>
+                        <a href="#">Cardio</a>
+                        <a href="#">Yoga</a>
+                        <a href="#">Pilates</a>
+                        <a href="#">Nutrition</a>
+                        <a href="#">Weight Loss</a>
+                        <a href="#">Running</a>
+                        <a href="#">HIIT</a>
+                        <a href="#">Bodybuilding</a>
+                        <a href="#">Mental Health & Fitness</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="psychology-button">Psychology</button>
+                    <div class="content" id="psychology-content">
+                        <a href="#">Behavioral Psychology</a>
+                        <a href="#">Cognitive Psychology</a>
+                        <a href="#">Psychotherapy</a>
+                        <a href="#">Mental Disorders</a>
+                        <a href="#">Psychological Theories</a>
+                        <a href="#">Social Psychology</a>
+                        <a href="#">Developmental Psychology</a>
+                        <a href="#">Neuropsychology</a>
+                        <a href="#">Psychological Research</a>
+                        <a href="#">Self-help</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="photography-button">Photography</button>
+                    <div class="content" id="photography-content">
+                        <a href="#">Portrait Photography</a>
+                        <a href="#">Landscape Photography</a>
+                        <a href="#">Street Photography</a>
+                        <a href="#">Black & White Photography</a>
+                        <a href="#">Digital Photography</a>
+                        <a href="#">Film Photography</a>
+                        <a href="#">Photography Tips</a>
+                        <a href="#">Lighting Techniques</a>
+                        <a href="#">Photo Editing</a>
+                        <a href="#">Photography Gear</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="gaming-button">Gaming</button>
+                    <div class="content" id="gaming-content">
+                        <a href="#">FPS</a>
+                        <a href="#">MMO</a>
+                        <a href="#">Strategy Games</a>
+                        <a href="#">Role-Playing Games</a>
+                        <a href="#">Indie Games</a>
+                        <a href="#">Mobile Games</a>
+                        <a href="#">Board Games</a>
+                        <a href="#">Game Design</a>
+                        <a href="#">VR Gaming</a>
+                        <a href="#">Speedrunning</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="pets-button">Pets</button>
+                    <div class="content" id="pets-content">
+                        <a href="#">Dogs</a>
+                        <a href="#">Cats</a>
+                        <a href="#">Birds</a>
+                        <a href="#">Reptiles</a>
+                        <a href="#">Fish</a>
+                        <a href="#">Hamsters</a>
+                        <a href="#">Exotic Pets</a>
+                        <a href="#">Pet Care</a>
+                        <a href="#">Training Pets</a>
+                        <a href="#">Pet Health</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="parenting-button">Parenting</button>
+                    <div class="content" id="parenting-content">
+                        <a href="#">Newborn Care</a>
+                        <a href="#">Toddler Development</a>
+                        <a href="#">Teenagers</a>
+                        <a href="#">Parenting Advice</a>
+                        <a href="#">Special Needs Children</a>
+                        <a href="#">Education Tips</a>
+                        <a href="#">Work-Life Balance</a>
+                        <a href="#">Single Parenting</a>
+                        <a href="#">Discipline Strategies</a>
+                        <a href="#">Family Fun</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="career-button">Career & Jobs</button>
+                    <div class="content" id="career-content">
+                        <a href="#">Resume Tips</a>
+                        <a href="#">Job Interviews</a>
+                        <a href="#">Freelancing</a>
+                        <a href="#">Remote Work</a>
+                        <a href="#">Networking</a>
+                        <a href="#">Salary Negotiation</a>
+                        <a href="#">Career Change</a>
+                        <a href="#">Professional Development</a>
+                        <a href="#">Job Search Strategies</a>
+                        <a href="#">Workplace Culture</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="personal-finance-button">Personal Finance</button>
+                    <div class="content" id="personal-finance-content">
+                        <a href="#">Budgeting</a>
+                        <a href="#">Investing</a>
+                        <a href="#">Saving for Retirement</a>
+                        <a href="#">Credit Scores</a>
+                        <a href="#">Loans</a>
+                        <a href="#">Taxes</a>
+                        <a href="#">Real Estate</a>
+                        <a href="#">Emergency Funds</a>
+                        <a href="#">Side Hustles</a>
+                        <a href="#">Financial Independence</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="health-button">Health</button>
+                    <div class="content" id="health-content">
+                        <a href="#">Nutrition</a>
+                        <a href="#">Mental Health</a>
+                        <a href="#">Exercise</a>
+                        <a href="#">Chronic Illness</a>
+                        <a href="#">Sleep</a>
+                        <a href="#">Wellness</a>
+                        <a href="#">Fitness Apps</a>
+                        <a href="#">Medical Research</a>
+                        <a href="#">Self-Care</a>
+                        <a href="#">Preventative Care</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="technology-button-2">Tech Innovations</button>
+                    <div class="content" id="technology-content-2">
+                        <a href="#">5G Networks</a>
+                        <a href="#">Self-Driving Cars</a>
+                        <a href="#">Space Travel</a>
+                        <a href="#">Nanotechnology</a>
+                        <a href="#">Wearable Tech</a>
+                        <a href="#">Smart Homes</a>
+                        <a href="#">3D Printing</a>
+                        <a href="#">Voice Assistants</a>
+                        <a href="#">Robotics</a>
+                        <a href="#">Augmented Reality</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="crafts-button">Crafts</button>
+                    <div class="content" id="crafts-content">
+                        <a href="#">DIY Projects</a>
+                        <a href="#">Woodworking</a>
+                        <a href="#">Knitting</a>
+                        <a href="#">Sewing</a>
+                        <a href="#">Jewelry Making</a>
+                        <a href="#">Origami</a>
+                        <a href="#">Painting & Drawing</a>
+                        <a href="#">Home Decor</a>
+                        <a href="#">Upcycling</a>
+                        <a href="#">Scrapbooking</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="movies-button">Movies & TV</button>
+                    <div class="content" id="movies-content">
+                        <a href="#">Action Movies</a>
+                        <a href="#">Comedy Movies</a>
+                        <a href="#">Sci-Fi Movies</a>
+                        <a href="#">Romantic Comedies</a>
+                        <a href="#">Superhero Movies</a>
+                        <a href="#">Horror Movies</a>
+                        <a href="#">TV Shows</a>
+                        <a href="#">Documentaries</a>
+                        <a href="#">Film Analysis</a>
+                        <a href="#">Film Awards</a>
+                    </div>
+                </div>
+                <div class="collapsible-list">
+                    <button class="collapsible" id="language-button">Languages</button>
+                    <div class="content" id="language-content">
+                        <a href="#">Spanish</a>
+                        <a href="#">French</a>
+                        <a href="#">Japanese</a>
+                        <a href="#">Chinese</a>
+                        <a href="#">German</a>
+                        <a href="#">Italian</a>
+                        <a href="#">Sign Language</a>
+                        <a href="#">Latin</a>
+                        <a href="#">Arabic</a>
+                        <a href="#">Portuguese</a>
+                    </div>
+                </div>
+            </div>
+            
+    
+            <!-- Right Box: Image Grid -->
+            <div class="right-box">
+                <div class="image-item">
+                    <h3>Cars</h3>
+                    <a href="cars.html" target="_blank">
+                        <img src="images/delorean.avif" alt="picture of a Delorean Car">
+                    </a>
+                    <p>/c/ -V4Mirai General: *zaps you* I LOVE the delorean, too bad they are so slow</p>
+                </div>
+                <div class="image-item">
+                    <h3>Technology</h3>
+                    <a href="technology.html" target="_blank">
+                        <img src="images/airpods.jpg" alt="picture of a AirPods">
+                    </a>
+                    <p>/tech/ Me1al MonsTer: >Previous 9348732432: Airpods quality is so bad</p>
+                </div>
+                <div class="image-item">
+                    <h3>Video Games</h3>
+                    <a href="videogames.html" target="_blank">
+                        <img src="images/nyancat.webp" alt="picture of a Nyancat">
+                    </a>
+                    <p>M3000WE: >Previous 1236549334: MOW MEOOWOWO 0MO30EMWOW</p>
+                </div>
+                <div class="image-item">
+                    <h3>Computer</h3>
+                    <a href="computer.html" target="_blank">
+                        <img src="images/motherboard.webp" alt="picture of a Motherboard">
+                    </a>
+                    <p>/comp/: >Why do motherboards look so stupid, that blue hurts my eyes</p>
+                </div>
+                <div class="image-item">
+                    <h3>Misc</h3>
+                    <a href="misc.html" target="_blank">
+                        <img src="images/hat.jpg" alt="picture of a hat">
+                    </a>
+                    <p>>Capperie: hat. Must wear hat.</p>
+                </div>
+                <div class="image-item">
+                    <h3>Technology</h3>
+                    <a href="technology.html" target="_blank">
+                        <img src="images/aicat.avif" alt="picture of a AI cat">
+                    </a>
+                    <p>/AI/ catLover449: Cats are so damn cute, AI cats are ever better, look how smoooth</p>
+                </div>
+                <div class="image-item">
+                    <h3>Random</h3>
+                    <a href="random.html" target="_blank">
+                        <img src="images/money.jpg" alt="picture of a guy with money">
+                    </a>
+                    <p>>87563498021: I really want this motorcycle but im to damn poor</p>
+                </div>
+                <div class="image-item">
+                    <h3>Cartoons & Comics</h3>
+                    <a href="cartoons.html" target="_blank">
+                        <img src="images/superman.webp" alt="picture of super man">
+                    </a>
+                    <p>/Cart/: >Whos your favorite superhero??</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 4Chan Redesign</p>
+    </footer>
+
+    <!-- JavaScript for Collapsible Lists -->
+    <script>
+        // Get all the collapsible buttons
+        const collapsibles = document.querySelectorAll(".collapsible");
+
+        // Add event listeners to each collapsible button
+        collapsibles.forEach(button => {
+            button.addEventListener("click", function() {
+                // Toggle the "active" class to show/hide the content
+                this.classList.toggle("active");
+                
+                // Toggle the display of the content
+                const content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
